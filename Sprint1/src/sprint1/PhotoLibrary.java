@@ -10,12 +10,12 @@ public class PhotoLibrary{
 	
 	private String name;
 	private final int ID;
-	private ArrayList<Photograph> photos;
+	private ArrayList<Photograph> photos = new ArrayList<Photograph>(); // Was declared but not instantiated. Fixed! (: -- Adair
 	
 	//Constructor
 	public PhotoLibrary(String name, int id) {
 		this.name = name;
-		this.ID = ID;
+		this.ID = id; 
 		List<Photograph> photos = new ArrayList<Photograph>();
 	}
 	
@@ -87,7 +87,13 @@ public class PhotoLibrary{
 		return numPhotos;
 	}
 	
-	
+	/**
+	 * This method is meant to compare one PhotoLibrary object against the current Photolibrary object and returns true or false depending on if the IDs match.
+	 *
+	 * @param o The object being compared to the PhotoLibrary object.
+	 * @return If the object is not a PhotoLibrary object, it will return false. If the object is a PhotoLibrary object, but its ID is different from the current PhotoLibrary object, the method will return false. If the object is a PhotoLibrary object AND has the same ID as the current Photolibrary object, it will return true.
+	 * @author Adair Tabb
+	 */
 	public boolean equals(Object o) {
 		if (!(o instanceof PhotoLibrary)) {
 			return false;
@@ -97,6 +103,11 @@ public class PhotoLibrary{
 		return (this.ID == that.ID);
 	}
 	
+	/**
+	 * A method to allow PhotoLibrary's field information to be printed as an easily readable String the object is called in a print() or println().
+	 * @return A String containing the PhotoLibrary object's fields in an understandable format.
+	 * @author Adair Tabb
+	 */
 	public String toString() {
 		return "Name: " + name + "\n" + "ID: " + ID + "\n" + "Photos: " + photos;
 	}
