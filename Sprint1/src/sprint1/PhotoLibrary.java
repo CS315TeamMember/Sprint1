@@ -1,16 +1,21 @@
+/**
+ * Sprint 1
+ * Evelina Teran
+ */
+
 package sprint1;
 import java.util.*;
 
 public class PhotoLibrary{
 	
 	private String name;
-	private final int id;
+	private final int ID;
 	private ArrayList<Photograph> photos;
 	
 	//Constructor
 	public PhotoLibrary(String name, int id) {
 		this.name = name;
-		this.id = id;
+		this.ID = ID;
 		List<Photograph> photos = new ArrayList<Photograph>();
 	}
 	
@@ -20,7 +25,7 @@ public class PhotoLibrary{
 	}
 	
 	public int getId() {
-		return id;
+		return ID;
 	}
 	
 	public ArrayList<Photograph> getPhotos(){
@@ -33,8 +38,14 @@ public class PhotoLibrary{
 	}
 	
 	//Other Methods
-	//Adds the Photograph p to the current object's
-	//photos feed iff p is not already in the list
+	/**
+	 * Adds the photograph p to the current object's 
+	 * photo feed if and only if p is not already in the list
+	 * 
+	 * @param p represents a photograph
+	 * @return boolean operator returns true if photo was added
+	 * 		   boolean operator returns false if photo was not added
+	 */
 	public boolean addPhoto(Photograph p) {
 		if (!photos.contains(p)) {
 			photos.add(p);
@@ -45,6 +56,11 @@ public class PhotoLibrary{
 		}
 	}
 	
+	/**
+	 * 
+	 * @param p represnts a photograph
+	 * @return
+	 */
 	//Checks to see if p is in the list of photos
 	public boolean hasPhoto(Photograph p) {
 		if (photos.contains(p)) {
@@ -78,11 +94,11 @@ public class PhotoLibrary{
 		}
 		PhotoLibrary that = (PhotoLibrary) o;
 		
-		return (this.id == that.id);
+		return (this.ID == that.ID);
 	}
 	
 	public String toString() {
-		return "Name: " + name + "\n" + "ID: " + id + "\n" + "Photos: " + photos;
+		return "Name: " + name + "\n" + "ID: " + ID + "\n" + "Photos: " + photos;
 	}
 
 	
@@ -105,14 +121,17 @@ public class PhotoLibrary{
 	}
 	
 	public static double similarity(PhotoLibrary a, PhotoLibrary b) {
+		double simVal;
+		
 		ArrayList<Photograph>result = PhotoLibrary.commonPhotos(a, b);
 		if (result.size() == 0) {
 			return 0.0;
 		}
 		else {
-			// Something goes here but I have no idea what
+			// number of common photos divided by total number of photos
+			simVal = (double)result.size() / ((double)a.numPhotographs() + (double)b.numPhotographs());
+			return simVal;
 		}
-		return 0; //doing this for now but I'm not done
 	}
 	
 	
