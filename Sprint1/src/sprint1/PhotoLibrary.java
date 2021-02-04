@@ -8,36 +8,65 @@ import java.util.*;
 
 public class PhotoLibrary{
 	
+	/**
+	 * "name" is a string containing the PhotoLibrary's name in whatever
+	 * form it was provided
+	 * 
+	 * "id" is an integer containing the PhotoLibrary's unique id. Once
+	 * set it will never change.
+	 * 
+	 * "photos" is an ArrayList<Photograph> of photos the user has posted
+	 * to their feed in this library
+	 */
 	private String name;
 	private final int ID;
 	private ArrayList<Photograph> photos = new ArrayList<Photograph>(); // Was declared but not instantiated. Fixed! (: -- Adair
 	
-	//Constructor
+	/**
+	 * Constructor for name and id
+	 * 
+	 * @param name
+	 * @param id
+	 */
 	public PhotoLibrary(String name, int id) {
 		this.name = name;
 		this.ID = id; 
 		List<Photograph> photos = new ArrayList<Photograph>();
 	}
 	
-	// Accessors (AKA getters)
+	/**
+	 * Accessor/getter for name
+	 * @return name
+	 */
 	public String getName() {
 		return name;
 	}
 	
+	/**
+	 * Accessor/getter for id
+	 * @return ID
+	 */
 	public int getId() {
 		return ID;
 	}
 	
+	/**
+	 * Accessor/getter for photos
+	 * @return ArrayList for photos
+	 */
 	public ArrayList<Photograph> getPhotos(){
 		return photos;
 	}
 	
-	//Mutators (AKA setters)
+	/**
+	 * Mutator/setter for the field name
+	 * @param name
+	 */
 	public void setName(String name) {
 		this.name = name;
 	}
 	
-	//Other Methods
+
 	/**
 	 * Adds the photograph p to the current object's 
 	 * photo feed if and only if p is not already in the list
@@ -131,6 +160,8 @@ public class PhotoLibrary{
 		return result;
 	}
 	
+	
+	
 	public static double similarity(PhotoLibrary a, PhotoLibrary b) {
 		double simVal;
 		
@@ -139,7 +170,7 @@ public class PhotoLibrary{
 			return 0.0;
 		}
 		else {
-			// number of common photos divided by total number of photos
+			// number of common photos divided by total number of photos (percentage of similarity)
 			simVal = (double)result.size() / ((double)a.numPhotographs() + (double)b.numPhotographs());
 			return simVal;
 		}
