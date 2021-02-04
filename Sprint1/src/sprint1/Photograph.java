@@ -17,18 +17,17 @@ public class Photograph {
 		return caption;
 	}
 	
-	//public boolean equals(Object o) {
-		
-	//}
-	
-	public String toString() {
-		return "Filename: " + filename + "/n" + "Caption: " + caption;
-	}
-	
-	public static void Main(String args[]) {
-		Photograph p = new Photograph("DefaultFilename", "DefaultCaption");
-		p.toString();
 
+	public static void main(String args[]) {
+		Photograph p = new Photograph("DefaultFilename", "DefaultCaption");
+		Photograph f = new Photograph("DefaultFilename", "DefaultCaption");
+		Photograph e = new Photograph("DifferentFilename", "DifferentCaption");
+		System.out.println(p);
+		System.out.println(f);
+		System.out.println(e);
+		
+		System.out.println(p.equals(f));
+		System.out.println(p.equals(e));
 	}
 	
 }
