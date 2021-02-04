@@ -73,11 +73,16 @@ public class PhotoLibrary{
 	
 	
 	public boolean equals(Object o) {
+		if (!(o instanceof PhotoLibrary)) {
+			return false;
+		}
+		PhotoLibrary that = (PhotoLibrary) o;
 		
+		return (this.id == that.id);
 	}
 	
 	public String toString() {
-		
+		return "Name: " + name + "\n" + "ID: " + id + "\n" + "Photos: " + photos;
 	}
 
 	
