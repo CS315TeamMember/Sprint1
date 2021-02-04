@@ -160,6 +160,8 @@ public class PhotoLibrary{
 		return result;
 	}
 	
+	
+	
 	public static double similarity(PhotoLibrary a, PhotoLibrary b) {
 		double simVal;
 		
@@ -168,7 +170,7 @@ public class PhotoLibrary{
 			return 0.0;
 		}
 		else {
-			// number of common photos divided by total number of photos
+			// number of common photos divided by total number of photos (percentage of similarity)
 			simVal = (double)result.size() / ((double)a.numPhotographs() + (double)b.numPhotographs());
 			return simVal;
 		}
