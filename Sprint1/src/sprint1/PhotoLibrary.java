@@ -21,7 +21,7 @@ public class PhotoLibrary{
 	private String name;
 	private final int ID;
 	private ArrayList<Photograph> photos = new ArrayList<Photograph>(); // Was declared but not instantiated. Fixed! (: -- Adair
-	
+	private albums;
 	/**
 	 * Constructor for name and id
 	 * 
@@ -32,6 +32,8 @@ public class PhotoLibrary{
 		this.name = name;
 		this.ID = id; 
 		List<Photograph> photos = new ArrayList<Photograph>();
+		Hashset<String> albums = new Hashset();
+		
 	}
 	
 	/**
@@ -87,7 +89,7 @@ public class PhotoLibrary{
 	
 	/**
 	 * 
-	 * @param p represnts a photograph
+	 * @param p represents a photograph
 	 * @return
 	 */
 	//Checks to see if p is in the list of photos
@@ -177,6 +179,79 @@ public class PhotoLibrary{
 	}
 	
 	
-
+	public ArrayList<Photograph> getPhotos(int rating){
+		ArrayList<Photograph>result = new ArrayList<Photograph>();
+		ArrayList<Photograph>aPhotos = a.getPhotos();
+		for (Photograph photoA : aPhotos) {
+			//How do I make sure its the rating for photoA being compared to the goal rating
+			if (getRating(photoA) >= rating){
+				result.add(photoA);
+			}
+			else {
+				return null;
+			}
+		}
+		return result;
+	}
 	
+	public ArrayList<Photograph> getPhotosInYear(int year){
+		ArrayList<Photograph>photos = a.getPhotos();
+		ArrayList<Photograph>result = new ArrayList<Photograph>();
+		for(Photograph photoA: aPhotos) {
+			if(year = year) {
+				result.add(photoA);
+			}
+		}
+		return result;
+	}
+	
+	public ArrayList<Photograph> getPhotosInMonth(int month, int year){
+		ArrayList<Photograph>photos = a.getPhotos();
+		ArrayList<Photograph>result = new ArrayList<Photograph>();
+		for(Photograph photoA: aPhotos) {
+			if((year = year) & (month = month)){
+				result.add(photoA);
+			}
+		}
+		return result;
+	}
+	
+	public ArrayList<Photograph> getPhotosBetween(String beginDate, String endDate){
+		ArrayList<Photograph>photos = a.getPhotos();
+		ArrayList<Photograph>result = new ArrayList<Photograph>();
+		for(Photograph photoA: aPhotos) {
+			if((beginDate ) & (month = month)){
+				result.add(photoA);
+			}
+		}
+		return result;
+	}
+	
+	public boolean createAlbum(String albumName) {
+		
+	}
+	
+	public boolean removeAlbum(String albumName) {
+		
+	}
+	
+	public boolean addPhotoToAlbum(Photograph p, String albumName) {
+		
+	}
+	
+	public boolean removePhotoFromAlbum(Photograph p, String albumName) {
+		
+	}
+	
+	private Album getAlbumByName(String albumName) {
+	
+	}
+	
+	public boolean erasePhoto(Photograph p) {
+		//Modify original one actually
+	}
+	
+	public String toString() {
+		//Modify original one actually 
+	}
 }
